@@ -1,49 +1,64 @@
-# Simple ATM System
+ATM Simulation in Python 
 
-balance = 10000   
-PIN = "0000"      
+# Overview 
 
-def verifypin():
-    userpin = input("Enter your PIN: ")
-    if userpin == PIN:
-        return True
-    else:
-        print("Incorrect PIN")
-        return False
+This is a simple terminal-based ATM simulation program written in Python. Users can securely perform typical ATM functions—such as withdrawing funds, depositing money, checking balance, and exiting the session—using secure PIN verification before each transaction. 
 
-while True:
-    print("\n===== ATM MENU =====")
-    print("1. Withdraw") 
-    print("2. Deposit")
-    print("3. Check Balance")
-    print("4. Exit")
+# Features 
 
-    choice = input("Enter your choice (1-4): ")
+Secure PIN verification before every transaction 
 
-    if choice == "1":
-        if verifypin():
-            amount = int(input("Enter amount to withdraw: "))
-            if amount > balance:
-                print("Insufficient Balance!")
-            else:
-                balance -= amount
-                print(f"Withdrawal Successful! Amount withdrawn: {amount}")
-            print(f"Available Balance: {balance}")
+Withdraw money with balance checking 
 
-    elif choice == "2":
-        if verifypin():
-            amount = int(input("Enter amount to deposit: "))
-            balance += amount
-            print(f"Deposit Successful! Amount deposited: {amount}")
-            print(f"Available Balance: {balance}")
+Deposit money to increase account balance 
 
-    elif choice == "3":
-        if verifypin():
-            print(f"Your Current Balance: {balance}")
+View current account balance 
 
-    elif choice == "4":
-        print("Thank you for using the ATM. Goodbye!")
-        break
+Graceful exit from the program 
 
-    else:
-        print("Invalid Choice! Please choose between 1-4.")
+Usage Instructions 
+
+Run the Script: 
+Execute the Python script in your terminal or IDE. 
+
+Interact with the Menu: 
+The program presents a menu with four options: 
+
+Withdraw 
+
+Deposit 
+
+Check Balance 
+
+Exit 
+
+Enter the number (1-4) corresponding to your chosen action. 
+
+# PIN Verification: 
+Before performing any operation, you will be asked to enter your PIN. If correct, the transaction proceeds; otherwise, you'll receive an error message and return to the main menu. 
+
+# Withdraw / Deposit Rules: 
+
+For withdraw: If the requested amount exceeds the current balance, you'll receive an insufficient balance notice. 
+
+For deposit: The entered amount gets added to your balance. 
+
+Exit: 
+Selecting "Exit" displays a farewell message and ends your session. 
+
+# Example Session 
+
+text 
+
+===== ATM MENU ===== 
+1. Withdraw 
+2. Deposit 
+3. Check Balance 
+4. Exit 
+Enter your choice (1-4): 1 
+Enter your PIN: 2341 
+Enter amount to withdraw: 1000 
+Withdrawal Successful! Amount withdrawn: 1000 
+Available Balance: 9000 
+
+ 
